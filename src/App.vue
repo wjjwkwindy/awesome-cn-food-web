@@ -1,8 +1,9 @@
 <script setup>
-import HelloWorld from "./components/HelloWorld.vue";
-import TheWelcome from "./components/TheWelcome.vue";
+import { about,setAbout } from '@/utils/store';
 import Map from "./components/Map.vue";
 import Header from "./components/Header.vue";
+import About from "./components/About.vue";
+import Model from "./components/Model.vue";
 </script>
 
 <template>
@@ -11,6 +12,10 @@ import Header from "./components/Header.vue";
             <Header />
             <Map />
         </div>
+
+        <Model :value="about" :setValue="setAbout">
+            <About />
+        </Model>
     </div>
 </template>
 

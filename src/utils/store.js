@@ -1,3 +1,4 @@
+import {ref} from 'vue';
 // import raw from "@/utils/data.json";
 // import raw from "@/utils/data_food.json";
 
@@ -12,3 +13,7 @@ const geoData = Object.freeze({
 });
 
 export const geo = geoData;
+
+export const about = ref(false);
+
+export const setAbout = (v) => about.value = v;
