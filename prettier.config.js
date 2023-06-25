@@ -28,5 +28,5 @@ module.exports = {
   useTabs: false,
 
   // html文件的空格敏感度
-  htmlWhitespaceSensitivity: 'ignore', 
+  htmlWhitespaceSensitivity: 'ignore',
 };
