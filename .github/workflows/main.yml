@@ -25,7 +25,7 @@ jobs:
         run: npm run build
 
       - name: Deploy
-        uses: SamKirkland/webdeploy@v1
+        uses: SamKirkland/web-deploy@v1
         with:
           target-server: ${{ secrets.SERVER_IP }}
           ssh-port: ${{ secrets.SSH_PORT }}
