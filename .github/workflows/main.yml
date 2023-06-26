@@ -1,17 +1,34 @@
-name: deploy vue to server
+name: Github Actions Deploy
 on:
-  push: 
-    branches: [ main ]
+  push:
+    branches: [$default-branch]
   pull_request:
-    branches: [ mian ]
+    branches: [$default-branch]
 
 jobs:
-  Run-npm-on-Ubuntu:
-    name: Run npm on Ubuntu
-    runs-on: ubuntu-20.04
+  web-deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@main
-      - uses: actions/setup-node@main
+      - name: Checkout
+        uses: actions/checkout@main
+
+      - name: Setup Node.js
+        uses: actions/setup-node@main
         with:
           node-version: '18'
-      - run: npm help
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy
+        uses: SamKirkland/webdeploy@v1
+        with:
+          target-server: ${{ secrets.SERVER_IP }}
+          ssh-port: ${{ secrets.SSH_PORT }}
+          remote-user: ${{ secrets.USERNAME }}
+          private-ssh-key: ${{ secrets.SSH_KEY }}
+          destination-path: ${{ secrets.DESTINATION_PATH }}
