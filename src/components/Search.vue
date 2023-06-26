@@ -8,7 +8,7 @@
         :value="searchString"
         @input="
           (event) => {
-            setSearchString(event.target.value)
+            setSearchString(event.target.value);
           }
         "
       />
@@ -19,7 +19,12 @@
       />
     </div>
     <div class="py-2 px-6">
-      <div v-if="searchString">{{ searchResult }}</div>
+      <div v-if="searchString">
+        <div v-if="searchResult.length">
+          <SearchListItem v-for="(item, index) in searchResult" :key="index" :item="item" />
+        </div>
+        <div v-else class="text-center text-gray-300 p-3 text-sm">无结果</div>
+      </div>
       <div v-else class="text-center text-gray-300 p-3 text-sm">输入关键字搜索</div>
     </div>
   </div>
@@ -27,11 +32,8 @@
 
 <script setup>
 import { Icon } from '@iconify/vue';
-import { searchResult,searchString, setSearchString, setSearch } from '@/utils/store';
-
-function test(){
-  console.log(1);
-}
+import { searchResult, searchString, setSearchString, setSearch } from '@/utils/store';
+import SearchListItem from './SearchListItem.vue';
 </script>
 
 <style lang="scss" scoped></style>
