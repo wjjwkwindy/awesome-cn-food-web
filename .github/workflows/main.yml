@@ -1,0 +1,17 @@
+name: deploy vue to server
+on:
+  push: 
+    branches: [ main ]
+  pull_request:
+    branches: [ mian ]
+
+jobs:
+  Run-npm-on-Ubuntu:
+    name: Run npm on Ubuntu
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@main
+      - uses: actions/setup-node@main
+        with:
+          node-version: '18'
+      - run: npm help
