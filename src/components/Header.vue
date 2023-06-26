@@ -8,7 +8,7 @@
     >
       <Logo />
     </div>
-    <div class="p-2 hover:bg-gray-100 hover:text-gray-700 rounded cursor-pointer mx-1">
+    <div class="p-2 hover:bg-gray-100 hover:text-gray-700 rounded cursor-pointer mx-1" @click="setSearch(true)">
       <Icon icon="carbon:search" class="text-lg leading-none text-gray-500" />
     </div>
     <div
@@ -23,7 +23,7 @@
 <script setup>
 import { Icon } from '@iconify/vue';
 import { emitter } from '@/utils/event';
-import { setAbout } from '@/utils/store';
+import { setAbout, setSearch } from '@/utils/store';
 import Logo from '@/components/Logo.vue';
 </script>
 

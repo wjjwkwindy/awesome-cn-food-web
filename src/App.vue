@@ -1,8 +1,9 @@
 <script setup>
-import { about, setAbout } from '@/utils/store';
+import { about, setAbout, search, setSearch } from '@/utils/store';
 import Map from './components/Map.vue';
 import Header from './components/Header.vue';
 import About from './components/About.vue';
+import Search from './components/Search.vue';
 import Model from './components/Model.vue';
 </script>
 
@@ -15,6 +16,9 @@ import Model from './components/Model.vue';
 
     <Model :value="about" :setValue="setAbout">
       <About />
+    </Model>
+    <Model :value="search" :setValue="setSearch">
+      <Search />
     </Model>
   </div>
 </template>
