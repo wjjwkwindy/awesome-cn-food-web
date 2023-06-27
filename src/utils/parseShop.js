@@ -6,7 +6,7 @@ export const parseShop = (shop) => {
   const rate = Number(properties['评分']);
   const pre = properties['人均'] ? Number(properties['人均']) : 0;
   const location1 = coordinates.join(',');
-  const location2 = coordinates.reverse().join(',');
+  const location2 = [...coordinates].reverse().join(',');
 
   return {
     shop,
