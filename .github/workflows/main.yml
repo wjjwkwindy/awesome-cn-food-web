@@ -25,10 +25,11 @@ jobs:
         run: npm run build
 
       - name: Deploy
-        uses: SamKirkland/web-deploy@v1
+        uses: appleboy/scp-action@v0.1.4
         with:
-          target-server: ${{ secrets.SERVER_IP }}
-          ssh-port: ${{ secrets.SSH_PORT }}
-          remote-user: ${{ secrets.USERNAME }}
-          private-ssh-key: ${{ secrets.SSH_KEY }}
-          destination-path: ${{ secrets.DESTINATION_PATH }}
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          source: ./dist/*
+          target: /projects/awesome-cn-food-web/dist
