@@ -1,5 +1,7 @@
 # awesome-cn-food-web
 
+![Status](https://github.com/wjjwkwindy/awesome-cn-food-web/actions/workflows/main.yml/badge.svg)
+
 This template should help get you started developing with Vue 3 in Vite.
 
 ## Recommended IDE Setup
