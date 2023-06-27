@@ -7,6 +7,7 @@ import { ref, onMounted } from 'vue';
 import mapboxgl from 'mapbox-gl';
 import { emitter } from '@/utils/event';
 import { geo } from '@/utils/store';
+import { Color } from '@/utils/constants';
 
 const mapContainer = ref(null);
 let map = null;
@@ -67,7 +68,6 @@ function createColorPoint(...color) {
 
 // 渲染点位
 function upadteMap() {
-  console.log(geo);
   map.addSource('source', {
     type: 'geojson',
     data: geo,
@@ -95,7 +95,7 @@ function upadteMap() {
     source: 'source',
     filter: ['has', 'point_count'],
     layout: {
-      'text-field': '{point_count_abbreviated}',
+      'text-field': ['get', 'point_count_abbreviated'],
       'text-size': 12,
       'text-allow-overlap': true,
     },
@@ -109,9 +109,9 @@ function upadteMap() {
     type: 'symbol',
     source: 'source',
     layout: {
-      'icon-image': ['get', 'marker-color'],
+      'icon-image': ['match', ['get', '评分']].concat(Object.entries(Color).flat(), 'black'),
       'icon-size': 0.25,
-      'text-field': ['get', 'shortname'],
+      'text-field': ['get', '简称'],
       'text-size': 12,
       'text-offset': [0, 0.5],
       'text-anchor': 'top',
