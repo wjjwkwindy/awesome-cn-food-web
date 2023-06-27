@@ -34,10 +34,10 @@ export const searchResult = computed(() => {
   return fuseByName.search(searchString.value).map((i) => i.item);
 });
 
-export const about = ref(false);
-export const search = ref(false);
-export const searchString = ref('');
-export const loc = ref(null);
+export const about = ref(false); // 关于页面
+export const search = ref(false); // 搜索页面
+export const searchString = ref(''); // 搜索字符串
+export const loc = ref(null); // 当前定位位置
 
 export const setAbout = (v) => (about.value = v);
 export const setSearch = (v) => (search.value = v);
