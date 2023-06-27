@@ -46,6 +46,10 @@ onMounted(() => {
     geoControl.trigger();
   });
 
+  emitter.on('fly-to', (data) => {
+    map.flyTo(data);
+  });
+
   geoControl.on('geolocate', (e) => {
     setLoc([e.coords.longitude, e.coords.latitude]);
   });
