@@ -37,7 +37,9 @@ export const searchResult = computed(() => {
 export const about = ref(false);
 export const search = ref(false);
 export const searchString = ref('');
+export const loc = ref(null);
 
 export const setAbout = (v) => (about.value = v);
 export const setSearch = (v) => (search.value = v);
 export const setSearchString = (str) => (searchString.value = str);
+export const setLoc = (v) => (loc.value = v);

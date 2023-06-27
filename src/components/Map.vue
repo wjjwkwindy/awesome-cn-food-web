@@ -6,7 +6,7 @@
 import { ref, onMounted } from 'vue';
 import mapboxgl from 'mapbox-gl';
 import { emitter } from '@/utils/event';
-import { geo } from '@/utils/store';
+import { geo, setLoc } from '@/utils/store';
 import { Color } from '@/utils/constants';
 
 const mapContainer = ref(null);
@@ -39,10 +39,15 @@ onMounted(() => {
     // When active the map will receive updates to the device's location as it changes.
     trackUserLocation: true,
   });
+
   map.addControl(geoControl);
 
   emitter.on('location', (e) => {
     geoControl.trigger();
+  });
+
+  geoControl.on('geolocate', (e) => {
+    setLoc([e.coords.longitude, e.coords.latitude]);
   });
 });
 

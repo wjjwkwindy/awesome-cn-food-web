@@ -7,6 +7,8 @@
       </div>
       <div class="mx-3">·</div>
       <div>人均：¥ {{ pre }}</div>
+      <div class="mx-3" v-if="distance">·</div>
+      <div>{{ distance }}</div>
     </div>
   </div>
 </template>
@@ -19,7 +21,7 @@ const props = defineProps({
   item: Object,
 });
 
-const { name, color, rate, pre } = parseShop(props.item);
+const { name, color, rate, pre, distance } = parseShop(props.item);
 </script>
 
 <style lang="scss" scoped></style>
