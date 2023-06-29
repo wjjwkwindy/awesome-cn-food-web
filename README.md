@@ -29,3 +29,7 @@ pnpm run dev
 ```sh
 pnpm run build
 ```
+
+## License
+
+MIT
