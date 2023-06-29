@@ -12,7 +12,7 @@
     <table class="mt-5 mb-3 text-sm">
       <tbody>
         <tr v-for="([key, value], index) in table" :key="index">
-          <td class="text-right text-gray-500 py-2 pr-5">{{ key }}</td>
+          <td class="text-right text-gray-500 py-2 pr-5 whitespace-nowrap">{{ key }}</td>
           <td class="py-2">{{ value }}</td>
         </tr>
       </tbody>
@@ -22,7 +22,7 @@
         class="border border-gray-200 px-4 py-[0.35rem] rounded text-gray-400 text-sm mx-1"
         target="_blank"
         rel="noreferrer"
-        :href="`https://uri.amap.com/marker?position=${location1}&name=${name}&coordinate=wgs84&callnative=0`"
+        :href="`https://uri.amap.com/marker?position=${location1}&name=${name}&coordinate=wgs84&callnative=1`"
       >
         高德地图
       </a>
