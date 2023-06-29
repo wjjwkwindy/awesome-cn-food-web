@@ -14,10 +14,17 @@ import Model from './components/Model.vue';
       <Map />
     </div>
 
-    <Model :value="about" :setValue="setAbout">
+    <Model :value="about" :setValue="() => setAbout(false)">
       <About />
     </Model>
-    <Model :value="search" :setValue="setSearch">
+    <Model
+      :value="search"
+      :setValue="
+        () => {
+          setSearch(false);
+        }
+      "
+    >
       <Search />
     </Model>
   </div>
