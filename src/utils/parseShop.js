@@ -1,6 +1,7 @@
 import { Color } from './constants';
 import { getDistanceFromMe } from './distance';
 
+// 解析店铺数据
 export const parseShop = (shop) => {
   const { properties, coordinates } = shop;
 
@@ -12,21 +13,22 @@ export const parseShop = (shop) => {
   const table = parseTableData(properties);
 
   return {
-    shop,
-    properties,
-    coordinates,
-    name: properties['名称'],
-    color: Color[rate],
-    comment: properties['评论'],
-    pre,
-    location1,
-    location2,
-    rate,
-    distance,
-    table,
+    shop, // 原始数据
+    properties, // 原始数据-属性
+    coordinates, // 原始数据-经纬度
+    name: properties['名称'], // 店铺名
+    color: Color[rate], // 评分颜色
+    comment: properties['评论'], // 评论
+    pre, // 人均
+    location1, // 经纬度
+    location2, // 经纬度（反转）
+    rate, // 评分
+    distance, // 和当前位置的距离
+    table, // 属性表格数据
   };
 };
 
+// 解析属性表格数据
 const parseTableData = (data) => {
   const result = [];
   for (const [key, value] of Object.entries(data)) {
