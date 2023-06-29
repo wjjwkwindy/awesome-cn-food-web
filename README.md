@@ -1,34 +1,41 @@
-# awesome-cn-food-web
+<p align="center">
+  <h2 align="center">awesome-cn-food-web 中国美食地图</h2>
+</p>
 
-![Status](https://github.com/wjjwkwindy/awesome-cn-food-web/actions/workflows/main.yml/badge.svg)
+<p align="center">
+  <img src="https://github.com/wjjwkwindy/awesome-cn-food-web/actions/workflows/main.yml/badge.svg">
+  <img src="https://img.shields.io/github/license/wjjwkwindy/awesome-cn-food-web">
+</p>
 
-This template should help get you started developing with Vue 3 in Vite.
+<p align="center">
+  <img src="./screenshots/home.png" width="200px">
+</p>
 
-## Recommended IDE Setup
+<p align="center">
+  <span>👉 </span>
+  <a href="https://food.arcticalpaca.com/" target="_blank">访问 web 应用</a>
+</p>
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## 特性
 
-## Customize configuration
+- 极速搜索（Fuse.js）
+- 网页版直接访问
+- 人性化的地图界面（mapbox-gl）
+- 调起三方地图进行导航（高德、百度地图）
+- 当前位置到店铺的距离
+- Vue3 + Vite
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+> 💡 店铺数据仅供参考，店铺评论为本人主观意见，如有侵权请联系我删除。
 
-## Project Setup
+## 待办
 
-```sh
-pnpm install
-```
+- [ ] 使用数据库保存数据
+- [ ] 使用 `vite-plugin-pwa` 添加 PWA 支持
+- [ ] 直接在 APP 中添加店铺
 
-### Compile and Hot-Reload for Development
+## 特别鸣谢
 
-```sh
-pnpm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-pnpm run build
-```
+受到 [antfu/awesome-cn-cafe-web](https://github.com/antfu/awesome-cn-cafe-web) 的启发
 
 ## License
 
