@@ -17,10 +17,29 @@
         </tr>
       </tbody>
     </table>
+    <div class="text-center">
+      <a
+        class="border border-gray-200 px-4 py-[0.35rem] rounded text-gray-400 text-sm mx-1"
+        target="_blank"
+        rel="noreferrer"
+        :href="`https://uri.amap.com/marker?position=${location1}&name=${name}&coordinate=wgs84&callnative=0`"
+      >
+        高德地图
+      </a>
+      <a
+        class="border border-gray-200 px-4 py-[0.35rem] rounded text-gray-400 text-sm mx-1"
+        target="_blank"
+        rel="noreferrer"
+        :href="`http://api.map.baidu.com/marker?location=${location2}&title=${name}&content=${AppName}&output=html&coord_type=wgs84`"
+      >
+        百度地图
+      </a>
+    </div>
   </div>
 </template>
 
 <script setup>
+import { AppName } from '@/utils/constants';
 import { parseShop } from '@/utils/parseShop';
 import { Icon } from '@iconify/vue';
 
@@ -28,7 +47,7 @@ const props = defineProps({
   shop: Object,
 });
 
-const { shop, coordinates, name, color, rate, pre, distance, table } = parseShop(props.shop);
+const { shop, coordinates, name, color, rate, pre, distance, table, location1, location2 } = parseShop(props.shop);
 </script>
 
 <style lang="scss" scoped></style>
