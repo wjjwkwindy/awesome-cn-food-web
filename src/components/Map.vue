@@ -6,7 +6,7 @@
 import { ref, onMounted } from 'vue';
 import mapboxgl from 'mapbox-gl';
 import { emitter } from '@/utils/event';
-import { geo, setLoc } from '@/utils/store';
+import { geo, setLoc, setCurrent } from '@/utils/store';
 import { Color } from '@/utils/constants';
 
 const mapContainer = ref(null);
@@ -29,6 +29,23 @@ onMounted(() => {
     map.addImage('#BEBEBE', createColorPoint(125, 125, 125, 255)); // 灰色
 
     upadteMap();
+  });
+
+  map.on('mouseenter', 'layer', () => {
+    map.getCanvas().style.cursor = 'pointer';
+  });
+
+  map.on('mouseleave', 'layer', () => {
+    map.getCanvas().style.cursor = '';
+  });
+
+  map.on('click', 'layer', (e) => {
+    if (!e.features) return;
+
+    const coordinates = e.features[0].geometry.coordinates.slice();
+    const properties = e.features[0].properties;
+
+    setCurrent({ coordinates, properties });
   });
 
   // maxpbox 获取当前位置

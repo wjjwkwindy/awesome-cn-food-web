@@ -38,8 +38,10 @@ export const about = ref(false); // 关于页面
 export const search = ref(false); // 搜索页面
 export const searchString = ref(''); // 搜索字符串
 export const loc = ref(null); // 当前定位位置
+export const current = ref(null); // 当前选中的店铺
 
 export const setAbout = (v) => (about.value = v);
 export const setSearch = (v) => (search.value = v);
 export const setSearchString = (str) => (searchString.value = str);
 export const setLoc = (v) => (loc.value = v);
+export const setCurrent = (v) => (current.value = v);

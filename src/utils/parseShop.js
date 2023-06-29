@@ -9,6 +9,7 @@ export const parseShop = (shop) => {
   const location1 = coordinates.join(',');
   const location2 = [...coordinates].reverse().join(',');
   const distance = getDistanceFromMe(coordinates);
+  const table = parseTableData(properties);
 
   return {
     shop,
@@ -22,5 +23,23 @@ export const parseShop = (shop) => {
     location2,
     rate,
     distance,
+    table,
   };
+};
+
+const parseTableData = (data) => {
+  const result = [];
+  for (const [key, value] of Object.entries(data)) {
+    switch (key) {
+      case '评论':
+        result.push([key, value]);
+        break;
+
+      case '人均':
+        result.push([key, '¥' + value]);
+      default:
+        break;
+    }
+  }
+  return result;
 };

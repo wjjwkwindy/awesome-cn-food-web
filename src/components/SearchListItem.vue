@@ -16,7 +16,7 @@
 <script setup>
 import { Icon } from '@iconify/vue';
 import { emitter } from '@/utils/event';
-import { setSearch } from '../utils/store';
+import { setSearch, setCurrent } from '@/utils/store';
 import { parseShop } from '@/utils/parseShop';
 
 const props = defineProps({
@@ -27,6 +27,7 @@ const { shop, name, color, rate, pre, distance } = parseShop(props.item);
 
 const flyToShop = () => {
   setSearch(false);
+  setCurrent(shop);
   emitter.emit('fly-to', {
     center: [shop.coordinates[0], shop.coordinates[1] - 0.009],
     zoom: 14,

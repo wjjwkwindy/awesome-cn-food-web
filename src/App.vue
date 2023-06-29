@@ -1,9 +1,10 @@
 <script setup>
-import { about, setAbout, search, setSearch } from '@/utils/store';
+import { about, setAbout, search, setSearch, current, setCurrent } from '@/utils/store';
 import Map from './components/Map.vue';
 import Header from './components/Header.vue';
 import About from './components/About.vue';
 import Search from './components/Search.vue';
+import Detail from './components/Detail.vue';
 import Model from './components/Model.vue';
 </script>
 
@@ -26,6 +27,16 @@ import Model from './components/Model.vue';
       "
     >
       <Search />
+    </Model>
+    <Model
+      :value="!!current"
+      :setValue="
+        () => {
+          setCurrent(null);
+        }
+      "
+    >
+      <Detail v-if="current" :shop="current" />
     </Model>
   </div>
 </template>
