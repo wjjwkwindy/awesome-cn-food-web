@@ -4,6 +4,8 @@
     <h1 class="text-lg">{{ name }}</h1>
     <div class="flex items-center text-gray-400 text-sm">
       <Icon icon="carbon:star-filled" :style="{ color }" v-for="item in rate" />
+      <div class="mx-2">·</div>
+      <div>{{ coordinates.map((i) => i.toFixed(3)).join(', ') }}</div>
       <div class="mx-2" v-if="distance">·</div>
       <div>{{ distance }}</div>
     </div>
@@ -26,7 +28,7 @@ const props = defineProps({
   shop: Object,
 });
 
-const { shop, name, color, rate, pre, distance, table } = parseShop(props.shop);
+const { shop, coordinates, name, color, rate, pre, distance, table } = parseShop(props.shop);
 </script>
 
 <style lang="scss" scoped></style>
