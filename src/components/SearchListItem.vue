@@ -5,9 +5,9 @@
       <div class="flex items-center">
         <Icon icon="carbon:star-filled" :style="{ color }" v-for="i in rate" />
       </div>
-      <div class="mx-3">·</div>
-      <div>人均：¥ {{ pre }}</div>
-      <div class="mx-3" v-if="distance">·</div>
+      <div class="mx-2">·</div>
+      <div>人均：{{ pre ? '¥' + pre : '暂无' }}</div>
+      <div class="mx-2" v-if="distance">·</div>
       <div>{{ distance }}</div>
     </div>
   </div>
