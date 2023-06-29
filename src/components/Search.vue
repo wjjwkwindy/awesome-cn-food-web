@@ -1,3 +1,4 @@
+<!-- 搜索弹窗 -->
 <template>
   <div class="h-screen w-screen grid" style="grid-template-rows: max-content auto">
     <div class="px-4 border-b border-gray-100">

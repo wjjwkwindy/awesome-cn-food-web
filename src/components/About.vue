@@ -1,3 +1,4 @@
+<!-- 关于弹窗 -->
 <template>
   <div class="px-10 py-8">
     <h1 class="mb-4">
@@ -36,7 +37,7 @@
         Github
       </a>
     </div>
-    <div class="text-sm text-gray-400 font-light my-1">
+    <div class="text-sm text-gray-400 font-light mt-5">
       Special thanks for
       <a
         class="text-gray-600 hover:text-gray-800"

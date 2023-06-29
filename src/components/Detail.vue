@@ -1,3 +1,4 @@
+<!-- 详情弹窗 -->
 <template>
   <div class="p-6">
     <h1 class="text-lg">{{ name }}</h1>

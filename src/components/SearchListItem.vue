@@ -1,3 +1,4 @@
+<!-- 搜索列表 -->
 <template>
   <div class="py-2 border-b border-gray-100" @click="flyToShop">
     <h1 class="text-gray-600">{{ name }}</h1>
