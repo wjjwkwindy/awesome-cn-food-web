@@ -48,6 +48,24 @@ onMounted(() => {
     setCurrent({ coordinates, properties });
   });
 
+  map.on('click', 'clusters', (e) => {
+    const features = map.queryRenderedFeatures(e.point, {
+      layers: ['clusters'],
+    });
+
+    if (!features.length) return;
+
+    const clusterId = features[0].properties.cluster_id;
+    map.getSource('source').getClusterExpansionZoom(clusterId, (err, zoom) => {
+      if (err) return;
+
+      map.easeTo({
+        center: features[0].geometry.coordinates,
+        zoom,
+      });
+    });
+  });
+
   // maxpbox 获取当前位置
   const geoControl = new mapboxgl.GeolocateControl({
     positionOptions: {
