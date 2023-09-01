@@ -28,4 +28,5 @@ coverage
 *.sw?
 
 public/*.json
+!public/*.example.json
 sync.bat

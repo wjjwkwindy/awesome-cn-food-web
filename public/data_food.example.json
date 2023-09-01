@@ -1,0 +1,26 @@
+{
+  "chengdu": {
+    "name": "成都",
+    "count": 2,
+    "data": {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "properties": {
+            "名称": "春熙路商圈",
+            "简称": "春熙路",
+            "评分": "3",
+            "评论": "成都市著名商圈",
+            "人均": "∞"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [104.07163174436482, 30.657821138082696]
+          }
+        }
+      ]
+    },
+    "center": [104.06521925, 30.605018500000003]
+  }
+}
