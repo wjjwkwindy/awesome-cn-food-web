@@ -6,12 +6,12 @@ import Fuse from 'fuse.js';
 // const raw = await import(/* @vite-ignore */ `./data_food.json`);
 
 // 原始数据
-const data = await fetch('/data_food.json');
-const raw = await data.json();
+const rawData = await fetch('/data_food.json');
+const rawDataJSON = await rawData.json();
 
 const geoData = Object.freeze({
   type: 'FeatureCollection',
-  features: Object.values(raw).flatMap((i) => i.data.features),
+  features: Object.values(rawDataJSON).flatMap((i) => i.data.features),
 });
 
 export const geo = geoData;

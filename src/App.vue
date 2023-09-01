@@ -18,24 +18,12 @@ import Model from './components/Model.vue';
     <Model :value="about" :setValue="() => setAbout(false)">
       <About />
     </Model>
-    <Model
-      :value="search"
-      :setValue="
-        () => {
-          setSearch(false);
-        }
-      "
-    >
+
+    <Model :value="search" :setValue="() => setSearch(false)">
       <Search />
     </Model>
-    <Model
-      :value="!!current"
-      :setValue="
-        () => {
-          setCurrent(null);
-        }
-      "
-    >
+
+    <Model :value="!!current" :setValue="() => setCurrent(null)">
       <Detail v-if="current" :shop="current" />
     </Model>
   </div>
