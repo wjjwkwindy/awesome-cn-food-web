@@ -1,5 +1,6 @@
 import { ref, computed } from 'vue';
 import Fuse from 'fuse.js';
+import { useStorage } from '@vueuse/core';
 // import raw from "@/utils/data.json";
 // import raw from "@/utils/data_food.json";
 
@@ -34,6 +35,11 @@ export const searchResult = computed(() => {
   return fuseByName.search(searchString.value).map((i) => i.item);
 });
 
+export const data = computed(() => rawDataJSON[city.value]); // 当前城市数据
+export const city = useStorage('food-cn-city', 'chengdu'); // 当前城市
+export const cityName = computed(() => data.value.name); // 当前城市中文名
+export const cities = Object.entries(rawDataJSON); // 所有城市
+
 export const about = ref(false); // 关于页面
 export const search = ref(false); // 搜索页面
 export const searchString = ref(''); // 搜索字符串
@@ -45,3 +51,4 @@ export const setSearch = (v) => (search.value = v);
 export const setSearchString = (str) => (searchString.value = str);
 export const setLoc = (v) => (loc.value = v);
 export const setCurrent = (v) => (current.value = v);
+export const changeCity = (v) => (city.value = v);
