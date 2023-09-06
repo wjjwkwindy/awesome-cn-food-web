@@ -30,3 +30,5 @@ coverage
 public/*.json
 !public/*.example.json
 sync.bat
+
+.vercel
