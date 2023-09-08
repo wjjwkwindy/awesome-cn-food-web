@@ -7,7 +7,8 @@ import { useStorage } from '@vueuse/core';
 // const raw = await import(/* @vite-ignore */ `./data_food.json`);
 
 // 原始数据
-const rawData = await fetch('/data_food.json');
+const API_URL = import.meta.env.VITE_API_URL ?? process.env.VITE_API_URL;
+const rawData = await fetch(`${import.meta.env.VITE_API_URL}/data_food.json`);
 const rawDataJSON = await rawData.json();
 
 const geoData = Object.freeze({

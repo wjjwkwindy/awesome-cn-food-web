@@ -32,3 +32,7 @@ public/*.json
 sync.bat
 
 .vercel
+
+.env
+.env.development
+.env.production
